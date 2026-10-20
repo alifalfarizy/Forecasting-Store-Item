@@ -1,6 +1,6 @@
-# Forecasting Permintaan Mingguan: Store Item Demand
+# Forecasting Store Item Demand
 
-Proyek ini meramal penjualan mingguan 500 kombinasi toko dan item untuk tahun 2018, lalu menguji apakah Holt-Winters benar-benar lebih akurat daripada baseline yang sederhana. Hasil ramalan bisa dipakai sebagai dasar perencanaan stok, misalnya saat tim marketing menanyakan apakah suatu barang akan cukup di bulan tertentu.
+Proyek ini memprediksi penjualan mingguan 500 kombinasi toko dan item untuk tahun 2018, lalu menguji apakah model Holt-Winters benar-benar lebih akurat daripada baseline yang sederhana. Hasil prediksi bisa dipakai sebagai dasar perencanaan stok, misalnya saat tim marketing menanyakan apakah suatu barang akan cukup di bulan tertentu.
 
 ## Hasil Utama
 
@@ -49,31 +49,6 @@ Data ini tampaknya sintetis (beberapa item punya total penjualan yang hampir sam
 - Horizon 52 minggu lebih sulit daripada kebutuhan operasional yang biasanya 2 sampai 8 minggu.
 - Data sintetis, jadi hasil di data nyata bisa berbeda.
 - Proyek ini berhenti di permintaan. Safety stock dan reorder point tidak dihitung karena dataset tidak memuat stok maupun lead time.
-
-## Langkah Lanjutan
-
-- Selidiki penyebab kekalahan Holt-Winters di kuartal pertama.
-- Uji horizon yang lebih pendek (4 sampai 8 minggu) yang lebih dekat dengan kebutuhan operasional.
-- Simpan hasil forecast ke PostgreSQL dan cek ulang totalnya dengan SQL.
-- Hitung safety stock dan reorder point jika tersedia data stok dan lead time.
-
-## Struktur Repositori
-
-```
-.
-├── Forecasting.ipynb     # notebook analisis lengkap
-├── forecast_2018.csv     # hasil forecast: store, item, minggu, forecast
-└── README.md
-```
-
-## Cara Menjalankan
-
-```bash
-pip install pandas numpy matplotlib statsmodels
-jupyter notebook Forecasting.ipynb
-```
-
-Menjalankan seluruh notebook membutuhkan sekitar 2 sampai 3 menit, sebagian besar untuk melatih 500 model Holt-Winters.
 
 ## Tools
 
